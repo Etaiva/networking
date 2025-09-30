@@ -1,1 +1,131 @@
+#IPv4 Unicast, Broadcast, and Multicast
+##Unicast
+IPv4 unicast host addresses are in the address range of 1.1.1.1 to 223.255.255.255. 
+However, within this range are many addresses that are reserved for special purposes.
+Notice that the subnet mask for 255.255.255.0 is represented using slash notion or /24. 
+This indicates that the subnet mask is 24 bits long. The subnet mask 255.255.255.0 in binary is 11111111.11111111.11111111.00000000.
+
+##IPv4 Broadcast
+A broadcast packet must be processed by all devices in the same broadcast domain. 
+A broadcast domain identifies all hosts on the same network segment. 
+A broadcast may be directed or limited. 
+A directed broadcast is sent to all hosts on a specific network. 
+For example, a host on the 172.16.4.0/24 network sends a packet to 172.16.4.255. 
+A limited broadcast is sent to 255.255.255.255. By default, routers do not forward broadcasts.
+
+##IPv4 Multicast
+Multicast transmission reduces traffic by allowing a host to send a single packet to a selected set of hosts that subscribe to a multicast group.
+A multicast packet is a packet with a destination IP address that is a multicast address. 
+IPv4 has reserved the 224.0.0.0 to 239.255.255.255 addresses as a multicast range.
+Hosts that receive particular multicast packets are called multicast clients. 
+The multicast clients use services requested by a client program to subscribe to the multicast group.
+Each multicast group is represented by a single IPv4 multicast destination address. 
+When an IPv4 host subscribes to a multicast group, the host processes packets addressed to this multicast address, and packets addressed to its uniquely allocated unicast address.
+Routing protocols such as OSPF use multicast transmissions. 
+For example, routers enabled with OSPF communicate with each other using the reserved OSPF multicast address 224.0.0.5. 
+Only devices enabled with OSPF will process these packets with 224.0.0.5 as the destination IPv4 address. All other devices will ignore these packets.
+
+#Types of ipv4 addresses
+##Public and Private IPv4 Addresses
+# RFC 1918 Private Address Ranges
+
+Below is a table outlining the RFC 1918 private IP address ranges, commonly used in private networks to prevent conflicts with public IP addresses.
+
+| Network Address and Prefix | RFC 1918 Private Address Range |
+|----------------------------|--------------------------------|
+| 10.0.0.0/8                 | 10.0.0.0 - 10.255.255.255      |
+| 172.16.0.0/12              | 172.16.0.0 - 172.31.255.255    |
+| 192.168.0.0/16             | 192.168.0.0 - 192.168.255.255  |
+
+##Private IPv4 Addresses and Network Address Translation (NAT)
+These packets have a source IPv4 address that is a private address and a destination IPv4 address that is public (globally routable). 
+Packets with a private address must be filtered (discarded) or translated to a public address before forwarding the packet to an ISP.
+
+##Special Use IPv4 Addresses
+###Loopback addresses
+Loopback addresses (127.0.0.0 /8 or 127.0.0.1 to 127.255.255.254) are more commonly identified as only 127.0.0.1. 
+These are special addresses used by a host to direct traffic to itself. 
+For example, the ping command is commonly used to test connections to other hosts. 
+But you can also use the ping command to test if the IP configuration on your own device, as shown in the figure.
+
+###Pinging the Loopback Interface
+C:∖Users∖NetAcad> ping 127.0.0.1
+Pinging 127.0.0.1 with 32 bytes of data:
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Ping statistics for 127.0.0.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+C:∖Users∖NetAcad> ping 127.1.1.1
+Pinging 127.1.1.1 with 32 bytes of data:
+Reply from 127.1.1.1: bytes=32 time<1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time<1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time<1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time<1ms TTL=128
+Ping statistics for 127.1.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+C:∖Users∖NetAcad>
+
+###Link-Local addresses
+Link-local addresses (169.254.0.0 /16 or 169.254.0.1 to 169.254.255.254) are more commonly known as the Automatic Private IP Addressing (APIPA) addresses or self-assigned addresses. 
+They are used by a Windows client to self-configure in the event that the client cannot obtain an IP addressing through other methods. 
+Link-local addresses can be used in a peer-to-peer connection but are not commonly used for this purpose.
+
+##Legacy Classful Addressing
+IPv4 addresses were assigned using classful addressing as defined in RFC 790:
 https://datatracker.ietf.org/doc/html/rfc790
+Customers were allocated a network address based on one of three classes, A, B, or C. The RFC divided the unicast ranges into specific classes as follows:
+
+###Class A (0.0.0.0/8 to 127.0.0.0/8) - 
+Designed to support extremely large networks with more than 16 million host addresses. 
+Class A used a fixed /8 prefix with the first octet to indicate the network address and the remaining three octets for host addresses (more than 16 million host addresses per network).
+###Class B (128.0.0.0 /16 - 191.255.0.0 /16) - 
+Designed to support the needs of moderate to large size networks with up to approximately 65,000 host addresses. 
+Class B used a fixed /16 prefix with the two high-order octets to indicate the network address and the remaining two octets for host addresses (more than 65,000 host addresses per network).
+
+###Class C (192.0.0.0 /24 - 223.255.255.0 /24) - 
+Designed to support small networks with a maximum of 254 hosts. 
+Class C used a fixed /24 prefix with the first three octets to indicate the network and the remaining octet for the host addresses (only 254 host addresses per network).
+
+Note: There is also a Class D multicast block consisting of 224.0.0.0 to 239.0.0.0 and a Class E experimental address block consisting of 240.0.0.0 - 255.0.0.0.
+
+##Assignment of IP Addresses
+###Regional Internet Registries
+Both IPv4 and IPv6 addresses are managed by the Internet Assigned Numbers Authority (IANA). 
+The IANA manages and allocates blocks of IP addresses to the Regional Internet Registries (RIRs).
+RIRs are responsible for allocating IP addresses to ISPs who provide IPv4 address blocks to organizations and smaller ISPs. 
+Organizations can also get their addresses directly from an RIR (subject to the policies of that RIR).
+>AfriNIC (African Network Information Centre) - Africa Region
+>APNIC (Asia Pacific Network Information Centre) - Asia/Pacific Region
+>ARIN (American Registry for Internet Numbers) - North America Region
+>LACNIC (Regional Latin-American and Caribbean IP Address Registry) - Latin America and some Caribbean Islands
+>RIPE NCC (Réseaux IP Européens Network Coordination Centre) - Europe, the Middle East, and Central Asia
+
+#Network Segmentation
+##Broadcast Domains and Segmentation
+In an Ethernet LAN, devices use broadcasts and the Address Resolution Protocol (ARP) to locate other devices.
+RP sends Layer 2 broadcasts to a known IPv4 address on the local network to discover the associated MAC address. 
+Devices on Ethernet LANs also locate other devices using services. 
+A host typically acquires its IPv4 address configuration using the Dynamic Host Configuration Protocol (DHCP) which sends broadcasts on the local network to locate a DHCP server.
+Switches propagate broadcasts out all interfaces except the interface on which it was received. 
+For example, if a switch in the figure were to receive a broadcast, it would forward it to the other switches and other users connected in the network.
+
+##Problems with Large Broadcast Domains
+A Large Broadcast Domain - A large broadcast domain is a network that connects many hosts.
+Communicating Between Networks - The solution is to reduce the size of the network to create smaller broadcast domains in a process called subnetting. 
+
+##Reasons for Segmenting Networks
+>reduces overall network traffic and improves network performance. 
+>enables an administrator to implement security policies such as which subnets are allowed or not allowed to communicate together. 
+>it reduces the number of devices affected by abnormal broadcast traffic due to misconfigurations, hardware/software problems, or malicious intent.
+
+##How network administrators can group subnets
+>Location
+>Group or Function
+>Device Type
+

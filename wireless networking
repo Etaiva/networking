@@ -10,3 +10,15 @@
 | 802.11ac   | 5.0 GHz             | 1 Gbps        |
 
 802.11 standards
+
+### Table 16.2 Wireless encryption options
+
+| Standard | Security status | Encryption algorithm | Encryption mode    |
+|----------|-----------------|----------------------|--------------------|
+| Open     | Insecure        | None                 | None               |
+| WEP      | Insecure        | RC4                  | None               |
+| WPA      | Insecure        | RC4                  | TKIP               |
+| WPA2     | Secure          | AES                  | CCMP               |
+| WPA3     | Secure          | AES                  | CCMP and SAE       |
+
+wireless encryption options

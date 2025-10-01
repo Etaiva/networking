@@ -1,0 +1,129 @@
+# IPv4 Issues
+## The Need for IPv6
+RIR IPv4 Exhaustion Dates
+>IPv4 is running out of addresses viz. four out of the five RIRs have run out of IPv4 addresses; Internet of Things
+>IPv6 has a larger 128-bit address space, providing 340 undecillion (i.e., 340 followed by 36 zeroes) possible addresses
+>opportunity to fix the limitations of IPv4 and include enhancements e.g. Internet Control Message Protocol version 6 (ICMPv6), which includes address resolution and address autoconfiguration not found in ICMP for IPv4 (ICMPv4).
+
+## IPv4 and IPv6 Coexistence
+IETF has created various protocols and tools to help network administrators migrate their networks to IPv6
+migration techniques can be divided into three categories:
+>Dual stack
+Dual stack allows IPv4 and IPv6 to coexist on the same network segment. 
+Dual stack devices run both IPv4 and IPv6 protocol stacks simultaneously. 
+Known as native IPv6, this means the customer network has an IPv6 connection to their ISP and is able to access content found on the internet over IPv6.
+>Tunneling
+Tunneling is a method of transporting an IPv6 packet over an IPv4 network. 
+The IPv6 packet is encapsulated inside an IPv4 packet, similar to other types of data.
+>Translation
+Network Address Translation 64 (NAT64) allows IPv6-enabled devices to communicate with IPv4-enabled devices using a translation technique similar to NAT for IPv4. 
+An IPv6 packet is translated to an IPv4 packet and an IPv4 packet is translated to an IPv6 packet.
+>Note: Tunneling and translation are for transitioning to native IPv6 and should only be used where needed. 
+The goal should be native IPv6 communications from source to destination.
+
+# IPv6 Addressing
+##Hexadecimal Number System
+IPv6 addresses are represented using hexadecimal numbers. This base sixteen number system uses the digits 0 to 9 and the letters A to F:
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+In IPv6 addresses, these 16 digits are represented as hextets 
+
+## IPv6 Addressing Formats
+IPv6 addresses are 128 bits in length and written as a string of hexadecimal values.
+Every four bits is represented by a single hexadecimal digit; for a total of 32 hexadecimal values, as shown in the figure. 
+IPv6 addresses are not case-sensitive and can be written in either lowercase or uppercase.
+###Preferred Format
+Preferred format means that you write IPv6 address using all 32 hexadecimal digits.
+These are examples of IPv6 addresses in the preferred format.
+2001 : 0db8 : 0000 : 1111 : 0000 : 0000 : 0000: 0200
+2001 : 0db8 : 0000 : 00a3 : abcd : 0000 : 0000: 1234
+2001 : 0db8 : 000a : 0001 : c012 : 9aff : fe9a: 19ac
+2001 : 0db8 : aaaa : 0001 : 0000 : 0000 : 0000: 0000
+fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
+fe80 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0001
+fe80 : 0000 : 0000 : 0000 : c012 : 9aff : fe9a: 19ac
+fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
+0000 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0001
+0000 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0001
+
+# Understanding IPv6 Address Structure and Hexadecimal to Binary Conversion
+This document explains the structure of an IPv6 address and demonstrates the conversion of hexadecimal digits to binary, as illustrated in the provided image.
+
+## IPv6 Address Structure
+An IPv6 address is 128 bits long, significantly larger than IPv4's 32 bits. It is typically represented as eight groups of four hexadecimal digits, with each group representing 16 bits. These groups are separated by colons.
+**Example IPv6 Address:**
+`2001:0db8:acad:a088:0000:0000:0000:0123`
+This address is broken down into eight 16-bit segments:
+| Segment | Hexadecimal Value | Number of Bits |
+|---------|-------------------|----------------|
+| 1       | `2001`            | 16 bits        |
+| 2       | `0db8`            | 16 bits        |
+| 3       | `acad`            | 16 bits        |
+| 4       | `a088`            | 16 bits        |
+| 5       | `0000`            | 16 bits        |
+| 6       | `0000`            | 16 bits        |
+| 7       | `0000`            | 16 bits        |
+| 8       | `0123`            | 16 bits        |
+
+## Hexadecimal to Binary Conversion
+Each hexadecimal digit (0-9, a-f) can be represented by exactly four binary bits. 
+This makes hexadecimal a convenient way to represent binary data in a more compact and human-readable form.
+Here is a conversion table for single hexadecimal digits to their 4-bit binary equivalents:
+| Hex | Binary | Hex | Binary | Hex | Binary | Hex | Binary |
+|-----|--------|-----|--------|-----|--------|-----|--------|
+| 0   | `0000` | 4   | `0100` | 8   | `1000` | c   | `1100` |
+| 1   | `0001` | 5   | `0101` | 9   | `1001` | d   | `1101` |
+| 2   | `0010` | 6   | `0110` | a   | `1010` | e   | `1110` |
+| 3   | `0010` | 7   | `0111` | b   | `1011` | f   | `1111` |
+For example, the hexadecimal digit `2` converts to the binary `0010`, as highlighted in the conversion table and referenced in the IPv6 address example.
+This understanding is fundamental for working with IPv6 addresses and other low-level network configurations.
+
+### IPv6 Address Notation Rule 1: Omitting Leading Zeroes
+When writing IPv6 addresses, a common simplification rule allows for the omission of leading zeroes in any 16-bit segment (also known as a "hextet").
+**Rule:** Leading zeroes in any 16-bit segment (hextet) do not have to be written.
+**Example:**
+*   `0db8` can be written as `db8`
+*   `0000` can be written as `0`
+*   `0123` can be written as `123`
+This rule helps to shorten the visual representation of IPv6 addresses without losing any information.
+
+### IPv6 Address Notation Rule 2: Double Colon (::) for Zero Compression
+This document explains the second rule for simplifying the written form of IPv6 addresses, which involves using a double colon to compress contiguous segments of zeroes.
+**Rule:** Any single, contiguous string of one or more 16-bit segments consisting of all zeroes can be represented with a double colon (`::`).
+**Explanation:**
+This rule is crucial for shortening IPv6 addresses, which can be quite long. When there are consecutive segments (hextets) that are all zeroes, they can be replaced by a double colon (`::`). This compression can only be used **once** in an IPv6 address to avoid ambiguity. If there are multiple contiguous strings of zeroes, only the longest one (or the first one if they are of equal length) should be compressed.
+**Examples:**
+1.  **Original Address:** `2001:0db8:0000:0000:0000:0000:1428:57ab`
+    **Applying Rule 1 (leading zeroes):** `2001:db8:0:0:0:0:1428:57ab`
+    **Applying Rule 2 (zero compression):** `2001:db8::1428:57ab`
+2.  **Original Address:** `fe80:0000:0000:0000:0202:b3ff:fe1e:8329`
+    **Applying Rule 1 (leading zeroes):** `fe80:0:0:0:202:b3ff:fe1e:8329`
+    **Applying Rule 2 (zero compression):** `fe80::202:b3ff:fe1e:8329`
+3.  **Original Address (all zeroes):** `0000:0000:0000:0000:0000:0000:0000:0001`
+    **Applying Rule 1 (leading zeroes):** `0:0:0:0:0:0:0:1`
+    **Applying Rule 2 (zero compression):** `::1` (This is the IPv6 loopback address)
+This compression method significantly improves the readability and conciseness of IPv6 addresses.
+ 
+In the hexadecimal (base-16) numeral system, the letters A through F are used to represent decimal values from 10 to 15. Here is the complete list:
+A represents the decimal value 10
+B represents the decimal value 11
+C represents the decimal value 12
+D represents the decimal value 13
+E represents the decimal value 14
+F represents the decimal value 15
+
+ASCII and Unicode Representations for Hexadecimal Letters (A-F)
+Here are the ASCII and Unicode representations for the letters A through F, which are used in hexadecimal notation to represent decimal values 10 through 15.
+| Letter | Decimal Value | ASCII (Decimal) | Unicode (Hexadecimal) |
+|--------|---------------|-----------------|-----------------------|
+| A      | 10            | 65              | U+0041                |
+| B      | 11            | 66              | U+0042                |
+| C      | 12            | 67              | U+0043                |
+| D      | 13            | 68              | U+0044                |
+| E      | 14            | 69              | U+0045                |
+| F      | 15            | 70              | U+0046                |
+**Explanation:**
+*   **ASCII (American Standard Code for Information Interchange):** This is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices. For the English alphabet, ASCII values are consistent with the first 128 Unicode characters.
+*   **Unicode:** This is a universal character encoding standard that assigns a unique number (code point) to every character in every language. ASCII is a subset of Unicode. The Unicode values are often represented in hexadecimal format, prefixed with `U+`.
+For the letters A through F, their ASCII decimal values are 65 through 70, respectively. Their corresponding Unicode hexadecimal code points are U+0041 through U+0046.
+
+

@@ -1,0 +1,108 @@
+# Networking IT Glossary (Part 1/3)
+
+This glossary provides definitions for networking IT terms discussed in this thread, presented in a GitHub-friendly Markdown format.
+
+## A
+
+*   **ACK (Acknowledgement):** In the context of DHCP, `DHCPACK` is a message sent by the DHCP server to the client, confirming the IP address lease and providing the complete network configuration parameters.
+*   **APIPA (Automatic Private IP Addressing):** A feature that allows a device to automatically assign itself an IP address from the `169.254.0.0/16` range when it cannot obtain an IP address from a DHCP server. Also known as a Link-local Address.
+*   **ARP (Address Resolution Protocol):** A protocol used to map an IP address to a physical MAC address on a local network segment.
+*   **ASCII (American Standard Code for Information Interchange):** A character encoding standard for electronic communication, representing text in computers and other devices.
+
+## B
+
+*   **Broadcast Domain:** A logical division of a computer network where all nodes can reach each other by broadcast at the data link layer. Routers typically define the boundaries of broadcast domains.
+*   **Broadcast Flooding:** The excessive propagation of broadcast messages across a network, which can consume bandwidth and degrade performance. Subnetting helps to reduce its scope.
+
+## C
+
+*   **CIDR (Classless Inter-Domain Routing):** A method for allocating IP addresses and routing IP packets. It replaces the older classful addressing system and uses a variable-length subnet mask (e.g., `/24`).
+
+## D
+
+*   **Default Gateway:** A router that serves as an access point to another network. It is the path used to send information to a computer in an external network or the internet.
+*   **DHCP (Dynamic Host Configuration Protocol):** A network management protocol used to dynamically assign IP addresses and other network configuration parameters (like subnet mask, default gateway, DNS servers) to devices on a network.
+*   **DHCPACK:** See ACK.
+*   **DHCPDISCOVER:** The initial broadcast message sent by a DHCP client to locate DHCP servers on the network.
+*   **DHCPOFFER:** A message sent by a DHCP server in response to a `DHCPDISCOVER`, proposing an IP address and configuration to the client.
+*   **DHCPREQUEST:** A message sent by a DHCP client to formally request an offered IP address from a specific DHCP server.
+*   **Directed Broadcast:** A message sent to all hosts on a specific remote network. The destination IP address uses the network address of the target network with all host bits set to 1.
+*   **DNS (Domain Name System):** A hierarchical and decentralized naming system that translates human-readable domain names (e.g., example.com) into numerical IP addresses.
+*   **DORA Process:** An acronym for Discover, Offer, Request, Acknowledge, describing the four-step process a DHCP client uses to obtain an IP address from a DHCP server.
+*   **Dual Stack:** A coexistence mechanism where a network device runs both IPv4 and IPv6 protocol stacks simultaneously, allowing it to communicate using either protocol.
+# Networking IT Glossary (Part 2/3)
+
+## E
+
+*   **Encapsulation:** The process of placing one protocol's data (the payload) inside another protocol's data unit (the header and trailer) for transmission. Used in tunneling.
+*   **Experimental Address:** IP addresses reserved for experimental use, typically in the Class E range (`240.0.0.0` to `255.255.255.254`) for IPv4.
+
+## F
+
+*   **FTP (File Transfer Protocol):** A standard network protocol used for the transfer of computer files between a client and server.
+
+## H
+
+*   **Hexadecimal:** A base-16 numeral system that uses 16 distinct symbols (0-9 and A-F) to represent numbers. Commonly used in networking to represent MAC addresses and IPv6 addresses.
+*   **Hextet:** A 16-bit segment of an IPv6 address, represented by four hexadecimal digits.
+*   **Host Number:** The portion of an IP address that identifies a specific device within a network or subnet, as determined by the subnet mask.
+*   **Hub:** A basic network device that connects multiple Ethernet devices together, making them act as a single network segment. It operates at Layer 1 (physical layer) and simply repeats all incoming signals to all other ports.
+
+## I
+
+*   **IANA (Internet Assigned Numbers Authority):** A department of ICANN responsible for the global coordination of IP addressing, Autonomous System Numbers, and the Root Zone Management of the Domain Name System.
+*   **ICANN (Internet Corporation for Assigned Names and Numbers):** A non-profit organization responsible for coordinating the maintenance and procedures of several databases related to the namespaces and numerical spaces of the Internet, ensuring the network's stable and secure operation.
+*   **IETF (Internet Engineering Task Force):** A large open international community of network designers, operators, vendors, and researchers concerned with the evolution of the Internet architecture and the smooth operation of the Internet.
+*   **IP Address (Internet Protocol Address):** A numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. It serves two main functions: host or network interface identification and location addressing.
+*   **IPv4 (Internet Protocol version 4):** The fourth version of the Internet Protocol, using 32-bit addresses.
+*   **IPv4 Address Depletion:** The exhaustion of the pool of unallocated IPv4 addresses, which was a primary driver for the development of IPv6.
+*   **IPv6 (Internet Protocol version 6):** The latest version of the Internet Protocol, using 128-bit addresses to provide a much larger address space and other improvements over IPv4.
+
+## L
+
+*   **LAN (Local Area Network):** A computer network that interconnects computers within a limited area such as a home, school, computer laboratory, or office building.
+*   **Limited Broadcast:** A broadcast message (`255.255.255.255` in IPv4) sent to all hosts on the local network segment. Routers do not forward these messages.
+*   **Link-local Address:** See APIPA.
+*   **Loopback Address:** A special IP address (`127.0.0.1` for IPv4, `::1` for IPv6) that refers to the local machine itself, used for testing and inter-process communication.
+
+Please say "next" when you are ready for the next part.
+# Networking IT Glossary (Part 3/3)
+
+## M
+
+*   **MAC Address (Media Access Control Address):** A unique identifier assigned to network interfaces for communications within a network segment. It operates at Layer 2 (Data Link Layer) of the OSI model.
+*   **Multicast:** A method of sending network messages to a specific group of recipients simultaneously.
+
+## N
+
+*   **NAT (Network Address Translation):** A method of remapping one IP address space into another by modifying network address information in the IP header of packets while they are in transit across a traffic routing device. Often used to allow multiple devices on a private network to share a single public IP address.
+*   **NAT64:** A mechanism that allows IPv6-only clients to communicate with IPv4-only servers by translating IPv6 packets to IPv4 packets and vice-versa.
+*   **Network Address:** The portion of an IP address that identifies the network segment to which a device is connected, as determined by the subnet mask.
+*   **Network Number:** Another term for Network Address.
+
+## P
+
+*   **Private IP Address:** IP addresses reserved by RFC 1918 for use within private networks. These addresses are not routable on the public internet.
+*   **Public IP Address:** An IP address that is globally unique and routable on the public internet.
+
+## R
+
+*   **Repeater:** A network device that operates at Layer 1 (physical layer) and regenerates and retransmits signals to extend the reach of a network segment.
+*   **RFC 1918:** A Request for Comments document that defines the private IP address ranges for IPv4.
+*   **Router:** A network device that forwards data packets between computer networks. Routers perform the traffic directing functions on the Internet. They operate at Layer 3 (Network Layer) and act as boundaries for broadcast domains.
+
+## S
+
+*   **Static IP Addressing:** Manually configuring an IP address and other network parameters on a device, rather than obtaining them dynamically from a DHCP server.
+*   **Subnet Mask:** A 32-bit number that works in conjunction with an IP address to determine which part of the IP address identifies the network and which part identifies the host.
+*   **Subnetting:** The practice of dividing a larger IP network into smaller, more manageable subnetworks (subnets) to improve network performance, security, and management.
+*   **Switch:** A network device that connects devices on a computer network by using packet switching to receive, process, and forward data to the destination device. Switches primarily operate at Layer 2 (Data Link Layer).
+
+## T
+
+*   **Tunneling:** A protocol that allows for the secure movement of data from one network to another. It involves encapsulating packets of one protocol inside another protocol to traverse an incompatible network (e.g., IPv6 packets inside IPv4 packets).
+
+## U
+
+*   **Unicast:** A method of sending network messages to a single, specific destination host.
+*   **Unicode:** A universal character encoding standard that assigns a unique number (code point) to every character in every language, encompassing ASCII as a subset.

@@ -47,17 +47,21 @@ This glossary provides definitions for networking IT terms discussed in this thr
 *   **Hextet:** A 16-bit segment of an IPv6 address, represented by four hexadecimal digits.
 *   **Host Number:** The portion of an IP address that identifies a specific device within a network or subnet, as determined by the subnet mask.
 *   **Hub:** A basic network device that connects multiple Ethernet devices together, making them act as a single network segment. It operates at Layer 1 (physical layer) and simply repeats all incoming signals to all other ports.
+*   **HyperText Markup Language (HTML):** HTML coding tells the browser how to format the web page and what graphics and fonts to use. HTML is the most commonly used language.
+*   **Hypertext Transfer Protocol (HTTP):** Used for web browsing, not email transmission. When a web client receives the IP address of a web server, the client browser uses that IP address and port 80 to request web services. This request is sent to the server using HTTP.
 
 ## I
 
 *   **IANA (Internet Assigned Numbers Authority):** A department of ICANN responsible for the global coordination of IP addressing, Autonomous System Numbers, and the Root Zone Management of the Domain Name System.
 *   **ICANN (Internet Corporation for Assigned Names and Numbers):** A non-profit organization responsible for coordinating the maintenance and procedures of several databases related to the namespaces and numerical spaces of the Internet, ensuring the network's stable and secure operation.
 *   **IETF (Internet Engineering Task Force):** A large open international community of network designers, operators, vendors, and researchers concerned with the evolution of the Internet architecture and the smooth operation of the Internet.
+*   **IMAP:** Retrieves and manages email on the server (sync across devices)
+*   **IMAP4 (Internet Message Access Protocol):** A server that supports IMAP clients also receives and stores messages addressed to its users. However, unlike POP, IMAP keeps the messages in the mailboxes on the server, unless they are deleted by the user. The most current version of IMAP is IMAP4 which listens for client requests on port 143.
 *   **IP Address (Internet Protocol Address):** A numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. It serves two main functions: host or network interface identification and location addressing.
 *   **IPv4 (Internet Protocol version 4):** The fourth version of the Internet Protocol, using 32-bit addresses.
 *   **IPv4 Address Depletion:** The exhaustion of the pool of unallocated IPv4 addresses, which was a primary driver for the development of IPv6.
 *   **IPv6 (Internet Protocol version 6):** The latest version of the Internet Protocol, using 128-bit addresses to provide a much larger address space and other improvements over IPv4.
-
+*   
 ## L
 
 *   **LAN (Local Area Network):** A computer network that interconnects computers within a limited area such as a home, school, computer laboratory, or office building.
@@ -82,6 +86,8 @@ Please say "next" when you are ready for the next part.
 
 ## P
 
+*   **POP:** Retrieves email from server to client (download only)
+*   **POP3 (Post Office Protocol):** A server that supports POP clients receives and stores messages addressed to its users. When the client connects to the email server, the messages are downloaded to the client. By default, messages are not kept on the server after they have been accessed by the client. Clients contact POP3 servers on port 110.
 *   **Private IP Address:** IP addresses reserved by RFC 1918 for use within private networks. These addresses are not routable on the public internet.
 *   **Public IP Address:** An IP address that is globally unique and routable on the public internet.
 
@@ -93,6 +99,7 @@ Please say "next" when you are ready for the next part.
 
 ## S
 
+*   **SMTP (Simple Mail Transfer Protocol):** Sends email from client to server or between servers
 *   **Static IP Addressing:** Manually configuring an IP address and other network parameters on a device, rather than obtaining them dynamically from a DHCP server.
 *   **Subnet Mask:** A 32-bit number that works in conjunction with an IP address to determine which part of the IP address identifies the network and which part identifies the host.
 *   **Subnetting:** The practice of dividing a larger IP network into smaller, more manageable subnetworks (subnets) to improve network performance, security, and management.

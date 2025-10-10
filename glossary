@@ -113,3 +113,5 @@ Please say "next" when you are ready for the next part.
 
 *   **Unicast:** A method of sending network messages to a single, specific destination host.
 *   **Unicode:** A universal character encoding standard that assigns a unique number (code point) to every character in every language, encompassing ASCII as a subset.
+*   **URI (Uniform Resource Identifier):** Identifies only the **namespace** of the resource without reference to the protocol.
+*   **URL (Uniform Resource Locator):** Defines the **network location** of a specific resource on the network.
